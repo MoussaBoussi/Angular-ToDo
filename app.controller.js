@@ -13,7 +13,7 @@ function TodoFunction() {
     vm.newTodo = {}
   
   }
-  vm.delete = function(index) {
+  vm.removeTask = function(index) {
     vm.todos.splice(index, 1);
   }
 }
