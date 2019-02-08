@@ -19,6 +19,9 @@ function TodoFunction() {
   vm.removeTask = function(index) {
     vm.todos.splice(index, 1);
   }
+  vm.completeTask = function(index) {
+    vm.todos[index].isComplete = true
+  }
 }
 
 angular
