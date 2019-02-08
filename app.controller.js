@@ -2,13 +2,16 @@
 
 function TodoFunction() {
   const vm = this;
-  vm.todos = [];
+  vm.todos = [
+    {task:"Finish Angular ToDo App", isComplete: true},
+    {task: "Create fake tasks", isComplete: true},
+    {task: "Learn Angular", isComplete: false}
+  ];
   
 
   vm.add = function(newTodo) {
     newTodo.isComplete = false
     vm.todos.push(angular.copy(newTodo))
-    console.log(vm.todos)
     
     vm.newTodo = {}
   
