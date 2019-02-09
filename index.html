@@ -28,9 +28,9 @@
             <!-- only displays the button if isComplete == false, the function makes it true -->
             <button class="btn-complete" ng-click="$ctrl.completeTask($index)"
               ng-if="item.isComplete == false">Complete</button>
-            <!-- On Keypress the paragraph passes the event and the index to function updateText -->
+            <!-- When the item is clicked away from the function updateText passes the event and the index -->
             <!-- updateText then sets the text content of the paragraph equal to item.task -->
-            <p ng-keypress="$ctrl.updateText($index, $event)" class="task-text" contenteditable="true"
+            <p ng-blur="$ctrl.updateText($index, $event)" class="task-text" contenteditable="true"
               ng-class="{complete: item.isComplete}">{{item.task}}</p> <!-- TASK -->
             <!-- On click the remove task function is run passing the index parameter so that the function knows which -->
             <!-- index to delete -->
