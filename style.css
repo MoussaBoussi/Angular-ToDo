@@ -77,11 +77,17 @@ form {
     right:0px;
 }
 
+.close:hover {
+    fill:#ff0000;
+}
+
 section {
     display: flex;
     flex-direction: column;
     background-color: #eee;
     padding: 20px;
+    height: auto;
+    max-width: 302;
 }
 
 .complete {
@@ -89,9 +95,10 @@ section {
 }
 
 .Add {
-    height: 24px;
+    height: 34px;
     border-radius: 7px;
     margin-top: 10px;
     background-color: #ff1493;
     color:#eee;
+    border: none;
 }

@@ -14,23 +14,42 @@
 <body>
 
   <main>
+    <!-- Links controller to section -->
     <section ng-controller="TodoController as $ctrl">
       <h2>TODO List</h2>
       <p>A place to store the things you need to do</p>
+      <!-- ng-model binds data to the input? -->
       <input type="text" ng-model="searchText" placeholder="Filter your to-dos">
       <ol>
+        <!-- For each item in the todos array a new list item is created -->
+        <!-- Filter searches the array based on the text of the filter input -->
         <li class="lst" ng-repeat="item in $ctrl.todos | filter: searchText">
           <div class="lst-cont">
-            <button class="btn-complete" ng-click="$ctrl.completeTask($index)" ng-if="item.isComplete == false">Complete</button>
-            <p ng-keypress= "$ctrl.updateText($index, $event)" class="task-text" contenteditable="true" ng-class="{complete: item.isComplete}">{{item.task}}</p> <!-- TASK -->
-            <img class = "close" src="https://material.io/tools/icons/static/icons/baseline-close-24px.svg" ng-click="$ctrl.removeTask($index)">
+            <!-- Complete button runs function complete task which passes the array that the button is in -->
+            <!-- only displays the button if isComplete == false, the function makes it true -->
+            <button class="btn-complete" ng-click="$ctrl.completeTask($index)"
+              ng-if="item.isComplete == false">Complete</button>
+            <!-- On Keypress the paragraph passes the event and the index to function updateText -->
+            <!-- updateText then sets the text content of the paragraph equal to item.task -->
+            <p ng-keypress="$ctrl.updateText($index, $event)" class="task-text" contenteditable="true"
+              ng-class="{complete: item.isComplete}">{{item.task}}</p> <!-- TASK -->
+            <!-- On click the remove task function is run passing the index parameter so that the function knows which -->
+            <!-- index to delete -->
+            <svg class="close" ng-click="$ctrl.removeTask($index)" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+              <path d="M0 0h24v24H0z" fill="none" /></svg>
           </div>
         </li>
       </ol>
+      <!-- on submit(button press) the add function is run passing the object newTodo -->
       <form ng-submit="$ctrl.add($ctrl.newTodo);">
+        <!-- binds the data from input to a new property called task inside of the new object newTodo -->
         <input ng-model="$ctrl.newTodo.task" type="text" placeholder="Add your to do">
+        <!-- button is disabled if newTodo is empty -->
         <button class="Add" ng-disabled="!$ctrl.newTodo">Add To Do</button>
       </form>
+
     </section>
   </main>
 
