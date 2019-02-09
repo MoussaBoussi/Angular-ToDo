@@ -5,6 +5,7 @@ function TodoFunction() {
   vm.todos = [
     {task:"Finish Angular ToDo App", isComplete: true},
     {task: "Create fake tasks", isComplete: true},
+    {task: "Make tasks editable", isComplete: true},
     {task: "Learn Angular", isComplete: false}
   ];
   
