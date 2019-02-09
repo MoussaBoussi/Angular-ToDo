@@ -22,7 +22,7 @@
         <li class="lst" ng-repeat="item in $ctrl.todos | filter: searchText">
           <div class="lst-cont">
             <button class="btn-complete" ng-click="$ctrl.completeTask($index)" ng-if="item.isComplete == false">Complete</button>
-            <p class="task-text" contenteditable="true" ng-class="{complete: item.isComplete}">{{item.task}}</p> <!-- TASK -->
+            <p ng-keypress= "$ctrl.updateText($index, $event)" class="task-text" contenteditable="true" ng-class="{complete: item.isComplete}">{{item.task}}</p> <!-- TASK -->
             <img class = "close" src="https://material.io/tools/icons/static/icons/baseline-close-24px.svg" ng-click="$ctrl.removeTask($index)">
           </div>
         </li>

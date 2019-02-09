@@ -23,7 +23,12 @@ function TodoFunction() {
   vm.completeTask = function(index) {
     vm.todos[index].isComplete = true
   }
+
+  vm.updateText = function(index, e) {
+    vm.todos[index].task = e.target.textContent;
+  }
 }
+
 
 angular
   .module("todoApp")
